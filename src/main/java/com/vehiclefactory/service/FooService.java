@@ -36,7 +36,7 @@ public class FooService {
 
         System.out.println(fooFormatterSet.format() + " setter");
 
-        System.out.println(fooFormatterSet.format() + " constructor");
+        System.out.println(fooFormatterConst.format() + " constructor");
 
         System.out.println(formatter.format() + " formatter with qualifier");
     }
