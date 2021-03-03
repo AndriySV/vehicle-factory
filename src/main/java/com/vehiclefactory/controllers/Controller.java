@@ -1,4 +1,4 @@
-package com.vehiclefactory.client;
+package com.vehiclefactory.controllers;
 
 import com.vehiclefactory.service.FooService;
 import org.springframework.beans.factory.annotation.Autowired;

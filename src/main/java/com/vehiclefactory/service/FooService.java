@@ -1,22 +1,43 @@
 package com.vehiclefactory.service;
 
 import com.vehiclefactory.red.FooFormatter;
+import com.vehiclefactory.red.Formatter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
 public class FooService {
+    @Autowired
+    @Qualifier("barFormatter")
+    private Formatter formatter;
 
     @Autowired
-    private FooFormatter fooFormatter;
+    private FooFormatter fooFormatterProp;
 
-    private FooFormatter fooFormatter2;
+    private FooFormatter fooFormatterNewObj = new FooFormatter();;
+
+    private FooFormatter fooFormatterSet;
+    @Autowired
+    public void setFooFormatterSet(FooFormatter fooFormatterSet) {
+        this.fooFormatterSet = fooFormatterSet;
+    }
+
+    private FooFormatter fooFormatterConst;
+    @Autowired
+    public FooService(FooFormatter fooFormatterConst) {
+        this.fooFormatterConst = fooFormatterConst;
+    }
 
     public void service() {
-        String format = fooFormatter.format();
-        System.out.println(format);
+        System.out.println(fooFormatterProp.format() + " property");
 
-        fooFormatter2 = new FooFormatter();
-        System.out.println(fooFormatter2.format() + " 2 !!!!");
+        System.out.println(fooFormatterNewObj.format() + " new object");
+
+        System.out.println(fooFormatterSet.format() + " setter");
+
+        System.out.println(fooFormatterSet.format() + " constructor");
+
+        System.out.println(formatter.format() + " formatter with qualifier");
     }
 }
