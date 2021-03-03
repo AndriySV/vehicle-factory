@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 public class BarFormatter implements Formatter {
     @Override
     public String format() {
+        LOGGER.info("start bar format");
         return "bar";
     }
 }

@@ -2,12 +2,16 @@ package com.vehiclefactory.service;
 
 import com.vehiclefactory.red.FooFormatter;
 import com.vehiclefactory.red.Formatter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
 public class FooService {
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
+
     @Autowired
     @Qualifier("barFormatter")
     private Formatter formatter;
@@ -30,6 +34,7 @@ public class FooService {
     }
 
     public void service() {
+        logger.info("Start service()");
         System.out.println(fooFormatterProp.format() + " property");
 
         System.out.println(fooFormatterNewObj.format() + " new object");
