@@ -1,5 +1,6 @@
 package com.vehiclefactory;
 
+import com.outsidesscope.OutsideScopeBeanExample;
 import com.outsidesscope.OutsideScopeExample;
 import com.vehiclefactory.component.ComponentExample;
 import com.vehiclefactory.component.ControllerExample;
@@ -13,7 +14,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
 
 @SpringBootTest
 @ExtendWith(SpringExtension.class)
@@ -32,6 +32,7 @@ public class ComponentTest {
         assertNotNull(applicationContext.getBean(ServiceExample.class));
         assertNotNull(applicationContext.getBean(ComponentExample.class));
         assertNotNull(applicationContext.getBean(OutsideScopeExample.class));
+        assertNotNull(applicationContext.getBean(OutsideScopeBeanExample.class));
     }
 
     @Test
